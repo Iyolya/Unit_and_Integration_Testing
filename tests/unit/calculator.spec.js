@@ -10,3 +10,12 @@ describe('App.vue', () => {
     expect(wrapper.vm.runningTotal).to.equal(9)
   })
 })
+
+describe('App.vue', () => {
+  it('add 1 to 4 and get 5', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.previousTotal = 4
+    wrapper.vm.add('1');
+    expect(wrapper.vm.runningTotal).to.equal(5)
+  })
+})
