@@ -54,3 +54,21 @@ describe('App.vue', () => {
     expect(wrapper.vm.runningTotal).to.equal(123456789)
   })
 })
+
+describe('App.vue', () => {
+  it('chain multiple operations together', () => {
+    const wrapper = shallowMount(App)
+    wrapper.vm.previousTotal = 0
+    wrapper.vm.numberClick('1');
+    wrapper.vm.operatorClick('+');
+    wrapper.vm.numberClick('1');
+    wrapper.vm.operatorClick('-');
+    wrapper.vm.numberClick('1');
+    wrapper.vm.operatorClick('*');
+    wrapper.vm.numberClick('8');
+    wrapper.vm.operatorClick('/');
+    wrapper.vm.numberClick('8');
+    wrapper.vm.operatorClick('=');
+    expect(wrapper.vm.runningTotal).to.equal(1)
+  })
+})
