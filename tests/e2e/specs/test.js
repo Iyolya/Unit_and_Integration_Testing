@@ -16,4 +16,13 @@ describe('calculator', () => {
     cy.get('#number9').click();
     cy.get('.display').should('contain', '99')
   })
+
+  it('the arithmetical operations update the display with the result of the operation', () => {
+    cy.get('#number1').click();
+    cy.get('#operator_add').click();
+    cy.get('#number1').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', '2')
+  })
+
 })
