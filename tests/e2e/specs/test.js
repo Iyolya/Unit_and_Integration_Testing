@@ -39,4 +39,20 @@ describe('calculator', () => {
     cy.get('.display').should('contain', '1')
   })
 
+  it('the expected output can be decimal', () => {
+    cy.get('#number1').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number2').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', 0.5);
+  })
+
+  it('the expected output can be positive', () => {
+    cy.get('#number1').click();
+    cy.get('#operator_add').click();
+    cy.get('#number1').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', 2);
+  })
+
 })
