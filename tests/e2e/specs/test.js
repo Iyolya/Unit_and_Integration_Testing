@@ -55,4 +55,12 @@ describe('calculator', () => {
     cy.get('.display').should('contain', 2);
   })
 
+  it('the expected output can be negative', () => {
+    cy.get('#number1').click();
+    cy.get('#operator_subtract').click();
+    cy.get('#number2').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', -1);
+  })
+
 })
