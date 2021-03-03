@@ -38,7 +38,7 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', '1')
   })
-
+  
   it('the expected output can be decimal', () => {
     cy.get('#number1').click();
     cy.get('#operator_divide').click();
@@ -46,7 +46,7 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', 0.5);
   })
-
+  
   it('the expected output can be positive', () => {
     cy.get('#number1').click();
     cy.get('#operator_add').click();
@@ -54,7 +54,7 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', 2);
   })
-
+  
   it('the expected output can be negative', () => {
     cy.get('#number1').click();
     cy.get('#operator_subtract').click();
@@ -62,7 +62,7 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', -1);
   })
-
+  
   it('the expected output can be a large number', () => {
     cy.get('#number1').click();
     cy.get('#number0').click();
@@ -74,5 +74,13 @@ describe('calculator', () => {
     cy.get('#operator_equals').click();
     cy.get('.display').should('contain', 90000);
   })
-
+  
+  it('dividing by 0 will result in undefined output', () => {
+    cy.get('#number8').click();
+    cy.get('#operator_divide').click();
+    cy.get('#number0').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', 'undefined');
+  })
+  
 })
