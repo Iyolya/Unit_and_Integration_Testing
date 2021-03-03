@@ -63,4 +63,16 @@ describe('calculator', () => {
     cy.get('.display').should('contain', -1);
   })
 
+  it('the expected output can be a large number', () => {
+    cy.get('#number1').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#number0').click();
+    cy.get('#operator_multiply').click();
+    cy.get('#number9').click();
+    cy.get('#operator_equals').click();
+    cy.get('.display').should('contain', 90000);
+  })
+
 })
